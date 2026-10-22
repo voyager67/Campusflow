@@ -22,6 +22,6 @@ python -m unittest discover -s tests -v
 
 Small, reviewable changes are best. Production authentication, official roster integration, privacy controls and deployment security require institutional requirements and review; they should not be represented as solved by a UI-only change.
 
-## Licensing
 
-No license is included in this release. Do not assume that public visibility grants permission to reuse, modify, or redistribute the code.
+
+
