@@ -25,7 +25,6 @@ For setup variations and the optional trusted-LAN phone demo, read `README.md`.
 
 ## Important notice
 
-**This is a prototype, not a production or official attendance system.** It is not affiliated with or approved by SAKEC. Use fictional data only. The demo student picker does not authenticate identity, and a rotating QR code does not prove physical presence or eliminate proxy attendance. Do not expose the server to the public internet or use it for official records.
 
 ## Recommended tag
 
