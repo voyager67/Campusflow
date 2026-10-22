@@ -19,6 +19,3 @@ First packaged demonstration release.
 - Server now binds to the local computer by default; LAN access requires explicit opt-in with `CAMPUSFLOW_LAN=1`.
 - Demo branding and version labels clarified.
 
-### Limitations
-- Demo-only student picker; no real identity authentication, role permissions, or official campus-system integration.
-- Not approved or endorsed by SAKEC and not suitable for official attendance records.
