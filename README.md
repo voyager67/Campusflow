@@ -155,14 +155,9 @@ CampusFlow is a proof of concept, **not a secure production attendance system**.
 
 Before a real pilot, obtain written institutional approval and complete a qualified security/privacy review. At minimum, a real deployment needs institution-managed authentication, server-side authorisation, secure transport, approved roster integration, auditable corrections, data minimisation, retention and backup rules, monitoring, abuse controls and a tested manual fallback. Read [SECURITY.md](SECURITY.md) before adapting this project.
 
-## Roadmap
 
-The next milestones focus on trust and validation before feature expansion. The roadmap is directional, not a promise of delivery dates.
 
-- [ ] **M1 — Safer foundations:** institution-approved authentication, server-side roles and authorization, CSRF/origin protections, rate limits and security review.
-- [ ] **M2 — Accountable workflows:** faculty/admin permissions, auditable corrections, accessible mobile check-in, and expanded tests.
-- [ ] **M3 — Pilot readiness:** privacy/retention policy, approved hosting and backups, manual fallback, and institution-approved roster workflow.
-- [ ] **M4 — Measured pilot:** only after approval, run a small pilot and measure check-in time, corrections, reliability and user feedback.
+
 
 See [ROADMAP.md](ROADMAP.md) for milestones and acceptance criteria, [docs/DEMO.md](docs/DEMO.md) for the walkthrough, and [PITCH_NOTES.md](PITCH_NOTES.md) for a short college discussion guide.
 
@@ -170,9 +165,8 @@ See [ROADMAP.md](ROADMAP.md) for milestones and acceptance criteria, [docs/DEMO.
 
 Focused suggestions and bug reports are welcome. Please use fictional examples only and never submit private student data, credentials or confidential campus-system details. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
-## License
 
-No license is included in this release. Public visibility does not itself grant permission to reuse, modify or redistribute this code.
+
 
 ---
 
