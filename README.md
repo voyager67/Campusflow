@@ -7,11 +7,11 @@
 CampusFlow is a student-built prototype exploring a low-cost classroom-attendance workflow: a lecturer starts a session, a time-limited QR code appears, demo students check in from a browser, and the register can be exported as CSV.
 
 > [!IMPORTANT]
-> **Prototype / demonstration only.** CampusFlow is not affiliated . It uses fictional sample students and must not be used for official attendance or real student records. The demo student picker is not authentication, and a QR code does not prove physical presence or eliminate proxy attendance.
+> **Prototype / demonstration only.** CampusFlow is an independent student prototype and is not affiliated with or endorsed by any college or institution. It uses fictional sample students and must not be used for official attendance or real student records. The demo student picker is not authentication, and a QR code does not prove physical presence or eliminate proxy attendance.
 
-[![CampusFlow concept preview](assets/demo-preview.jpg)](https://github.com/voyager67/campusflow/releases/download/v0.1.0/CampusFlow-Concept-Walkthrough-v0.1.0.mp4)
+[![CampusFlow concept preview](assets/demo-preview.jpg)](https://github.com/voyager67/Campusflow/blob/main/CampusFlow-Concept-Walkthrough-v0.1.0.mp4)
 
-**[▶ Watch the concept walkthrough (MP4)](https://github.com/voyager67/campusflow/releases/download/v0.1.0/CampusFlow-Concept-Walkthrough-v0.1.0.mp4)** · This is a designed concept walkthrough, not a recording of a live campus deployment. The application can be run locally using the steps below.
+**[▶ Watch the concept walkthrough (MP4)](https://github.com/voyager67/Campusflow/blob/main/CampusFlow-Concept-Walkthrough-v0.1.0.mp4)** · This is a designed concept walkthrough, not a recording of a live campus deployment. The application can be run locally using the steps below.
 
 ## What this release demonstrates
 
