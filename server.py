@@ -274,7 +274,12 @@ class Handler(BaseHTTPRequestHandler):
                 student = db.execute("SELECT * FROM students WHERE student_id=?", (student_id,)).fetchone()
                 if not session or not student or student["division"] != session["division"]:
                     self.send_json({"error":"Session or student not found."}, 404); return
-                db.execute("INSERT OR IGNORE INTO attendance(session_id,student_id,marked_at,method) VALUES (?,?,?,?)", (session_id, student_id, iso(), "Faculty correction"))
+                if session["status"] != "live":
+                    self.send_json({"error":"Manual attendance can only be added while a demo session is live."}, 409); return
+                try:
+                    db.execute("INSERT INTO attendance(session_id,student_id,marked_at,method) VALUES (?,?,?,?)", (session_id, student_id, iso(), "Faculty correction"))
+                except sqlite3.IntegrityError:
+                    self.send_json({"error":"Attendance is already recorded for this student in this lecture."}, 409); return
                 db.execute("INSERT INTO audit(actor,action,entity,created_at,note) VALUES (?,?,?,?,?)", (actor, "MANUAL_MARK", session_id, iso(), f"Marked {student_id} present by faculty correction"))
                 db.commit()
             self.send_json({"ok":True}); return
