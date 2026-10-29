@@ -96,6 +96,34 @@ class CampusFlowSmokeTests(unittest.TestCase):
         self.assertEqual(status, 410)
         self.assertIn(b"expired", body.lower())
 
+
+    def test_manual_attendance_requires_live_session_and_rejects_duplicates(self):
+        status, _, body = self.request(
+            "/api/session/start",
+            "POST",
+            {"subject": "Manual Attendance Test", "division": "IT-3", "faculty": "Demo Faculty"},
+        )
+        self.assertEqual(status, 200, body.decode("utf-8"))
+        status, _, body = self.request("/api/state")
+        session = json.loads(body)["activeSession"]
+        self.assertIsNotNone(session)
+        payload = {"sessionId": session["sessionId"], "studentId": "STU001", "actor": "Demo Faculty"}
+
+        status, _, body = self.request("/api/attendance/manual", "POST", payload)
+        self.assertEqual(status, 200, body.decode("utf-8"))
+
+        status, _, body = self.request("/api/attendance/manual", "POST", payload)
+        self.assertEqual(status, 409)
+        self.assertIn(b"already recorded", body.lower())
+
+        status, _, body = self.request("/api/session/stop", "POST", {})
+        self.assertEqual(status, 200, body.decode("utf-8"))
+
+        payload["studentId"] = "STU002"
+        status, _, body = self.request("/api/attendance/manual", "POST", payload)
+        self.assertEqual(status, 409)
+        self.assertIn(b"only be added while", body.lower())
+
     def test_session_qr_checkin_duplicate_and_csv_flow(self):
         status, _, body = self.request(
             "/api/session/start",
