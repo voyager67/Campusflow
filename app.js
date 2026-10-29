@@ -186,7 +186,17 @@ async function initStudentPage() {
     $('#student-submit').addEventListener('click',async()=>{
       $('#student-submit').disabled=true; $('#student-submit').textContent='Recording…';
       try { const res=await api('/api/checkin',{method:'POST',body:JSON.stringify({token,studentId:$('#student-account').value})}); $('#student-success-copy').textContent=`Recorded for ${res.subject}. You can return to class.`; $('#student-success').style.display='block'; $('#student-expired-warning').classList.add('hidden'); $('#student-submit').style.display='none'; }
-      catch(e){$('#student-expired-warning').textContent=e.message;$('#student-expired-warning').classList.remove('hidden');$('#student-submit').disabled=false;$('#student-submit').innerHTML='Try latest QR <span>↻</span>';}
+      catch(e){
+        $('#student-expired-warning').textContent=e.message;
+        $('#student-expired-warning').classList.remove('hidden');
+        if (e.message.toLowerCase().includes('expired') || e.message.toLowerCase().includes('latest code')) {
+          $('#student-submit').disabled=true;
+          $('#student-submit').textContent='Scan latest QR';
+        } else {
+          $('#student-submit').disabled=false;
+          $('#student-submit').textContent='Try again';
+        }
+      }
     });
   } catch(e) { $('#student-session-info').innerHTML='<strong>Could not connect</strong><span>Return to the demo computer and try again.</span>'; }
 }
